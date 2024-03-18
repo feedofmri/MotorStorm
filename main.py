@@ -145,34 +145,46 @@ def main():
             elif event.type == pygame.MOUSEBUTTONDOWN:
                 pos = pygame.mouse.get_pos()
                 print(pos)
-                if (pos[0] > 530 and pos[0] < 750 and pos[1] > 260 and pos[1] < 330):
-                    home_page = False
-                    play_page = True
-                    map_page = False
-                    car_page = False
-                    quit_btn = False
-                    
-                elif (pos[0] > 530 and pos[0] < 750 and pos[1] > 365 and pos[1] < 440):
-                    home_page = False
-                    play_page = False
-                    map_page = True
-                    car_page = False
-                    quit_btn = False
                 
-                elif (pos[0] > 530 and pos[0] < 750 and pos[1] > 470 and pos[1] < 540):
-                    home_page = False
-                    play_page = False
-                    map_page = False
-                    car_page = True
-                    quit_btn = False
+                if(home_page == True):
+                    if (pos[0] > 530 and pos[0] < 750 and pos[1] > 260 and pos[1] < 330):
+                        home_page = False
+                        play_page = True
+                        map_page = False
+                        car_page = False
+                        quit_btn = False
+                        
+                    elif (pos[0] > 530 and pos[0] < 750 and pos[1] > 365 and pos[1] < 440):
+                        home_page = False
+                        play_page = False
+                        map_page = True
+                        car_page = False
+                        quit_btn = False
                     
-                elif (pos[0] > 530 and pos[0] < 750 and pos[1] > 575 and pos[1] < 640):
-                    home_page = False
-                    play_page = False
-                    map_page = False
-                    car_page = False
-                    quit_btn = True
+                    elif (pos[0] > 530 and pos[0] < 750 and pos[1] > 470 and pos[1] < 540):
+                        home_page = False
+                        play_page = False
+                        map_page = False
+                        car_page = True
+                        quit_btn = False
+                        
+                    elif (pos[0] > 530 and pos[0] < 750 and pos[1] > 575 and pos[1] < 640):
+                        home_page = False
+                        play_page = False
+                        map_page = False
+                        car_page = False
+                        quit_btn = True
                 
+                elif (play_page == True):
+                    if (pos[0] > 50 and pos[0] < 230 and pos[1] > 50 and pos[1] < 110):
+                        home_page = True
+                        play_page = False
+                
+                elif (map_page == True):
+                    if (pos[0] > 860 and pos[0] < 1100 and pos[1] > 260 and pos[1] < 335):
+                        home_page = True
+                        map_page = False
+                        
     main()
     
 if __name__ == "__main__":
