@@ -181,10 +181,34 @@ def main():
                         play_page = False
                 
                 elif (map_page == True):
-                    if (pos[0] > 860 and pos[0] < 1100 and pos[1] > 260 and pos[1] < 335):
+                    if (pos[0] > 860 and pos[0] < 1100 and pos[1] > 400 and pos[1] < 465):
                         home_page = True
                         map_page = False
+                    
+                    elif (pos[0] > 860 and pos[0] < 1100 and pos[1] > 260 and pos[1] < 335):
+                        play_page = True
+                        map_page = False
                         
+                    elif (pos[0] > 90 and pos[0] < 390 and pos[1] > 335 and pos[1] < 390):
+                        print("map left")
+                    
+                    elif (pos[0] > 645 and pos[0] < 695 and pos[1] > 335 and pos[1] < 390):
+                        print("map right")
+                    
+                elif (car_page == True):
+                    if (pos[0] > 860 and pos[0] < 1100 and pos[1] > 400 and pos[1] < 465):
+                        home_page = True
+                        car_page = False
+                    
+                    elif (pos[0] > 860 and pos[0] < 1100 and pos[1] > 260 and pos[1] < 335):
+                        play_page = True
+                        car_page = False
+                        
+                    elif (pos[0] > 90 and pos[0] < 390 and pos[1] > 335 and pos[1] < 390):
+                        print("car left")
+                    
+                    elif (pos[0] > 645 and pos[0] < 695 and pos[1] > 335 and pos[1] < 390):
+                        print("car right")
     main()
     
 if __name__ == "__main__":
