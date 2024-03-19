@@ -26,6 +26,7 @@ CAR_PAGE_4 = pygame.transform.scale(pygame.image.load(os.path.join("images", "ca
 MUSIC_DIR = "musics"
 
 MUSICS = [file for file in os.listdir(MUSIC_DIR) if file.endswith(".mp3")]
+CLICK_SOUND = pygame.mixer.Sound(os.path.join("sounds", "click-button.mp3"))
 
 pygame.mixer.init()
 
@@ -177,10 +178,12 @@ def main():
                 
                 if(home_page == True):
                     if (pos[0] > 160 and pos[0] < 635 and pos[1] > 625 and pos[1] < 670):
+                        CLICK_SOUND.play()
                         if music_con == True:
                             play_music()
                         
                     elif (pos[0] > 60 and pos[0] < 680 and pos[1] > 625 and pos[1] < 670):
+                        CLICK_SOUND.play()
                         if music_con == True:
                             pygame.mixer.music.pause()
                             music_con = False
@@ -189,6 +192,7 @@ def main():
                             music_con = True
                      
                     elif (pos[0] > 530 and pos[0] < 750 and pos[1] > 260 and pos[1] < 330):
+                        CLICK_SOUND.play()
                         home_page = False
                         play_page = True
                         map_page = False
@@ -196,6 +200,7 @@ def main():
                         quit_btn = False
                         
                     elif (pos[0] > 530 and pos[0] < 750 and pos[1] > 365 and pos[1] < 440):
+                        CLICK_SOUND.play()
                         home_page = False
                         play_page = False
                         map_page = True
@@ -203,6 +208,7 @@ def main():
                         quit_btn = False
                     
                     elif (pos[0] > 530 and pos[0] < 750 and pos[1] > 470 and pos[1] < 540):
+                        CLICK_SOUND.play()
                         home_page = False
                         play_page = False
                         map_page = False
@@ -210,6 +216,7 @@ def main():
                         quit_btn = False
                         
                     elif (pos[0] > 530 and pos[0] < 750 and pos[1] > 575 and pos[1] < 640):
+                        CLICK_SOUND.play()
                         home_page = False
                         play_page = False
                         map_page = False
@@ -218,15 +225,18 @@ def main():
                 
                 elif (play_page == True):
                     if (pos[0] > 50 and pos[0] < 230 and pos[1] > 50 and pos[1] < 110):
+                        CLICK_SOUND.play()
                         home_page = True
                         play_page = False
                 
                 elif (map_page == True):
                     if (pos[0] > 860 and pos[0] < 1100 and pos[1] > 400 and pos[1] < 465):
+                        CLICK_SOUND.play()
                         home_page = True
                         map_page = False
                     
                     elif (pos[0] > 860 and pos[0] < 1100 and pos[1] > 260 and pos[1] < 335):
+                        CLICK_SOUND.play()
                         if map_page_1 == True:
                             play_page_1 = True
                             play_page_2 = False
@@ -251,7 +261,7 @@ def main():
                         map_page = False
                         
                     elif (pos[0] > 90 and pos[0] < 390 and pos[1] > 335 and pos[1] < 390):
-                        print("map left")
+                        CLICK_SOUND.play()
                         if map_page_1 == True:
                             map_page_1 = False
                             map_page_4 = True
@@ -266,7 +276,7 @@ def main():
                             map_page_3 = True
                     
                     elif (pos[0] > 645 and pos[0] < 695 and pos[1] > 335 and pos[1] < 390):
-                        print("map right")
+                        CLICK_SOUND.play()
                         if map_page_1 == True:
                             map_page_1 = False
                             map_page_2 = True
@@ -282,10 +292,12 @@ def main():
                     
                 elif (car_page == True):
                     if (pos[0] > 860 and pos[0] < 1100 and pos[1] > 400 and pos[1] < 465):
+                        CLICK_SOUND.play()
                         home_page = True
                         car_page = False
                     
                     elif (pos[0] > 860 and pos[0] < 1100 and pos[1] > 260 and pos[1] < 335):
+                        CLICK_SOUND.play()
                         if car_page_1 == True:
                             car1 = True
                             car2 = False
@@ -310,7 +322,7 @@ def main():
                         car_page = False
                         
                     elif (pos[0] > 90 and pos[0] < 390 and pos[1] > 335 and pos[1] < 390):
-                        print("car left")
+                        CLICK_SOUND.play()
                         if car_page_1 == True:
                             car_page_1 = False
                             car_page_4 = True
@@ -325,7 +337,7 @@ def main():
                             car_page_3 = True
                     
                     elif (pos[0] > 645 and pos[0] < 695 and pos[1] > 335 and pos[1] < 390):
-                        print("car right")
+                        CLICK_SOUND.play()
                         if car_page_1 == True:
                             car_page_1 = False
                             car_page_2 = True
