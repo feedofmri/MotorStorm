@@ -152,8 +152,7 @@ def draw_result(rank):
         pygame.time.delay(1500)
         SCREEN.blit(FAILED_1, (0, 0))
         pygame.display.update()
-        rank_page = True
-    
+        rank_page = True  
     
 import pygame
 
