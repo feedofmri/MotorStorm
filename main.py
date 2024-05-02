@@ -2,6 +2,7 @@ import pygame
 import os
 import time
 import random
+import math
 
 pygame.init()
 
@@ -23,10 +24,10 @@ CAR_PAGE_2 = pygame.transform.scale(pygame.image.load(os.path.join("images", "ca
 CAR_PAGE_3 = pygame.transform.scale(pygame.image.load(os.path.join("images", "car_menu3.png")), (1280, 720))
 CAR_PAGE_4 = pygame.transform.scale(pygame.image.load(os.path.join("images", "car_menu4.png")), (1280, 720))
 
-CAR_1 = pygame.transform.scale(pygame.image.load(os.path.join("images", "car1.png")), (25, 48))
-CAR_2 = pygame.transform.scale(pygame.image.load(os.path.join("images", "car2.png")), (25, 48))
-CAR_3 = pygame.transform.scale(pygame.image.load(os.path.join("images", "car3.png")), (25, 48))
-CAR_4 = pygame.transform.scale(pygame.image.load(os.path.join("images", "car4.png")), (25, 48))
+CAR_1 = pygame.transform.scale(pygame.image.load(os.path.join("images", "car1.png")), (20, 38))
+CAR_2 = pygame.transform.scale(pygame.image.load(os.path.join("images", "car2.png")), (20, 38))
+CAR_3 = pygame.transform.scale(pygame.image.load(os.path.join("images", "car3.png")), (20, 38))
+CAR_4 = pygame.transform.scale(pygame.image.load(os.path.join("images", "car4.png")), (20, 38))
 
 WIN = pygame.transform.scale(pygame.image.load(os.path.join("images", "win.png")), (1280, 720))
 WIN_1 = pygame.transform.scale(pygame.image.load(os.path.join("images", "win1.png")), (1280, 720))
@@ -57,107 +58,147 @@ def play_music():
 def draw_home(music_con):
     if music_con == True:
         SCREEN.blit(HOME_PAGE_1, (0, 0))
-        pygame.display.update()
+        
     else:
         SCREEN.blit(HOME_PAGE_2, (0, 0))
-        pygame.display.update()
+        
     
 
 def draw_play(play_page, play_page_1, play_page_2, play_page_3, play_page_4):
         
         if (play_page == True and play_page_1 == True and play_page_2 == False and play_page_3 == False and play_page_4 == False):
             SCREEN.blit(PLAY_PAGE_1, (0, 0))
-            pygame.display.update()
+            
             
         elif (play_page == True and play_page_1 == False and play_page_2 == True and play_page_3 == False and play_page_4 == False):
             SCREEN.blit(PLAY_PAGE_2, (0, 0))
-            pygame.display.update()
+            
         
         elif (play_page == True and play_page_1 == False and play_page_2 == False and play_page_3 == True and play_page_4 == False):
             SCREEN.blit(PLAY_PAGE_3, (0, 0))
-            pygame.display.update()
+            
             
         elif (play_page == True and play_page_1 == False and play_page_2 == False and play_page_3 == False and play_page_4 == True):
             SCREEN.blit(PLAY_PAGE_4, (0, 0))
-            pygame.display.update()
+            
 
     
 def draw_map(map_page, map_page_1, map_page_2, map_page_3, map_page_4):
     
     if (map_page == True and map_page_1 == True and map_page_2 == False and map_page_3 == False and map_page_4 == False):
         SCREEN.blit(MAP_PAGE_1, (0, 0))
-        pygame.display.update()
+        
         
     elif (map_page == True and map_page_1 == False and map_page_2 == True and map_page_3 == False and map_page_4 == False):
         SCREEN.blit(MAP_PAGE_2, (0, 0))
-        pygame.display.update()
+        
     
     elif (map_page == True and map_page_1 == False and map_page_2 == False and map_page_3 == True and map_page_4 == False):
         SCREEN.blit(MAP_PAGE_3, (0, 0))
-        pygame.display.update()
+        
         
     elif (map_page == True and map_page_1 == False and map_page_2 == False and map_page_3 == False and map_page_4 == True):
         SCREEN.blit(MAP_PAGE_4, (0, 0))
-        pygame.display.update()
+        
     
 
-def draw_car(car_page, car_page_1, car_page_2, car_page_3, car_page_4):
+def draw_car_page(car_page, car_page_1, car_page_2, car_page_3, car_page_4):
     
     if (car_page == True and car_page_1 == True and car_page_2 == False and car_page_3 == False and car_page_4 == False):
         SCREEN.blit(CAR_PAGE_1, (0, 0))
-        pygame.display.update()
+        
         
     elif (car_page == True and car_page_1 == False and car_page_2 == True and car_page_3 == False and car_page_4 == False):
         SCREEN.blit(CAR_PAGE_2, (0, 0))
-        pygame.display.update()
+        
     
     elif (car_page == True and car_page_1 == False and car_page_2 == False and car_page_3 == True and car_page_4 == False):
         SCREEN.blit(CAR_PAGE_3, (0, 0))
-        pygame.display.update()
+        
         
     elif (car_page == True and car_page_1 == False and car_page_2 == False and car_page_3 == False and car_page_4 == True):
         SCREEN.blit(CAR_PAGE_4, (0, 0))
-        pygame.display.update()   
+           
        
 
+def draw_car(car1, car2, car3, car4):
+    if car1 == True and car2 == False and car3 == False and car4 == False:
+        SCREEN.blit(CAR_1, (824, 296))
+        
+        
+    elif car2 == True and car1 == False and car3 == False and car4 == False:
+        SCREEN.blit(CAR_2, (0, 0))
+        
+        
+    elif car3 == True and car1 == False and car2 == False and car4 == False:
+        SCREEN.blit(CAR_3, (0, 0))
+        
+        
+    elif car4 == True and car1 == False and car2 == False and car3 == False:
+        SCREEN.blit(CAR_4, (0, 0))
+    
+def car_control(self, x, y):
+    # Car control key
+    key = pygame.key.get_pressed()
+    moved = False
+
+    if key[pygame.K_a]:
+        player_car.rotate(left=True)
+    if key[pygame.K_d]:
+        player_car.rotate(right=True)
+    if key[pygame.K_w]:
+        moved = True
+        player_car.move_forward()
+
+    if not moved:
+        player_car.reduce_speed()
+    
+    
+    
+    
+    
 def draw_result(rank):
     
     if rank == 1:
         SCREEN.blit(WIN, (0, 0))
-        pygame.display.update()
+        
         pygame.time.delay(1500)
         SCREEN.blit(WIN_1, (0, 0))
-        pygame.display.update()
+        
         rank_page = True
         
     elif rank == 2:
         SCREEN.blit(WIN, (0, 0))
-        pygame.display.update()
+        
         pygame.time.delay(1500)
         SCREEN.blit(WIN_2, (0, 0))
-        pygame.display.update()
+        
         rank_page = True
         
     elif rank == 3:
         SCREEN.blit(WIN, (0, 0))
-        pygame.display.update()
+        
         pygame.time.delay(1500)
         SCREEN.blit(WIN_3, (0, 0))
-        pygame.display.update()
+        
         rank_page = True
         
     elif rank >= 4:
         SCREEN.blit(FAILED, (0, 0))
-        pygame.display.update()
+        
         pygame.time.delay(1500)
         SCREEN.blit(FAILED_1, (0, 0))
-        pygame.display.update()
+        
         rank_page = True  
     
-import pygame
+clock = pygame.time.Clock()
 
+FPS = 60
+    
 def main():
 
+    clock.tick(FPS)
+    
     run = True
     
     music_con = True
@@ -196,17 +237,20 @@ def main():
         
     while run:   
         
+        pygame.display.update()
+        
         if home_page == True and play_page == False and map_page == False and car_page == False:
             draw_home(music_con)
             
         elif home_page == False and play_page == True and map_page == False and car_page == False:
             draw_play(play_page, play_page_1, play_page_2, play_page_3, play_page_4)
+            draw_car(car1, car2, car3, car4)
             
         elif home_page == False and play_page == False and map_page == True and car_page == False:
             draw_map(map_page, map_page_1, map_page_2, map_page_3, map_page_4)
         
         elif home_page == False and play_page == False and map_page == False and car_page == True:
-            draw_car(car_page, car_page_1, car_page_2, car_page_3, car_page_4)
+            draw_car_page(car_page, car_page_1, car_page_2, car_page_3, car_page_4)
         
         elif home_page == False and play_page == False and map_page == False and car_page == False and quit_btn == True:
             run = False
@@ -398,6 +442,8 @@ def main():
                         elif car_page_4 == True:
                             car_page_4 = False
                             car_page_1 = True
+                            
+        
     main()
     
 if __name__ == "__main__":
